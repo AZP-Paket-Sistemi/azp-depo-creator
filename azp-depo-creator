@@ -1,0 +1,793 @@
+#!/bin/bash
+
+### AZP Depo Yaradıcı
+# AZP Offical Site: https://azp-paket-sistemi.github.io
+# AZP Offical Depo: https://azp-paket-sistemi.github.io/azp-depo
+# 2021-2022 AZP
+
+if ! which zip &> /dev/null;
+then
+  echo -e "\033[1;31m zip -- quraşdırılmayıb ! \033[:0m"
+  echo -e "\033[1;31m zip -- not installed ! \033[:0m"
+fi
+
+echo -e "\033[1;35m AZP DEPO YARADICI \033[:0m"
+echo -e "\033[1;32m 2021-2022 AZP \033[:0m"
+sleep 0.6
+
+read -p "Boş olan deponuzun linkini daxil edin: " depo_link
+echo -e "\033[1;32m $depo_link == depo hazırlanır... \033[:0m"
+mkdir azp_depo_creator
+cd azp_depo_creator
+
+## Depo fayllarının hazırlanması
+echo -e "\033[1;32m Depo qovluqları hazırlanır \033[:0m"
+depo_folder="[depo] a b c d e f g h i j k l m n p r s t u v w y z"
+mkdir $depo_folder
+
+## index.html == hazırlanması
+index="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>AZP DEPO</h1>
+  <p>AZP applications depo</p>
+  <hr size="2" />
+ <div>
+ <ul>
+   <li><a href="a/a.html"><b>a</b></a></li>
+   <li><a href="b/b.html"><b>b</b></a></li>
+   <li><a href="c/c.html"><b>c</b></a></li>
+   <li><a href="d/d.html"><b>d</b></a></li>
+   <li><a href="e/e.html"><b>e</b></a></li>
+   <li><a href="f/f.html"><b>f</b></a></li>
+   <li><a href="g/g.html"><b>g</b></a></li>
+   <li><a href="h/h.html"><b>h</b></a></li>
+   <li><a href="i/i.html"><b>i</b></a></li>
+   <li><a href="j/j.html"><b>j</b></a></li>
+   <li><a href="k/k.html"><b>k</b></a></li>
+   <li><a href="l/l.html"><b>l</b></a></li>
+   <li><a href="m/m.html"><b>m</b></a></li>
+   <li><a href="n/n.html"><b>n</b></a></li>
+   <li><a href="p/p.html"><b>p</b></a></li>
+   <li><a href="r/r.html"><b>r</b></a></li>
+   <li><a href="s/s.html"><b>s</b></a></li>
+   <li><a href="t/t.html"><b>t</b></a></li>
+   <li><a href="u/u.html"><b>u</b></a></li>
+   <li><a href="v/v.html"><b>v</b></a></li>
+   <li><a href="w/w.html"><b>w</b></a></li>
+   <li><a href="y/y.html"><b>y</b></a></li>
+   <li><a href="z/z.html"><b>z</b></a></li>
+ </ul>
+   <hr size="2" />
+   <p>AZP paketi ilə düzəldilmiş bütün programlar bu depoda yerləşir. İstədiyiniz programları depodan əldə etməniz mümkündür.</p>
+
+   <p>AZP offical site: <a href="https://azp-paket-sistemi.github.io">https://azp-paket-sistemi.github.io</a></p>
+   <p>PacPERRO OS offical site: <a href="https://pacperro-os.github.io">https://pacperro-os.github.io</a></p>
+
+   <b>2022 AZP</b>
+ </div>
+</div>
+
+</body>
+</head>
+</html>"
+echo "$index" >> index.html
+
+# [depo] == hazırlanır
+read -p "Depo ad: " depo_ad
+read -p "Depo açıqlama: " depo_description
+cd "[depo]"
+touch depo.list
+echo "$depo_link" >> depo.list
+touch info-depo
+echo -e "\033[1;32m Depo məlumatları yazılır... \033[:0m"
+sleep 0.6
+echo "name: $depo_ad" >> info-depo
+echo "description: $depo_description" >> info-depo
+echo "link: $depo_link" >> info-depo
+zip -r depo.zip info-depo depo.list
+rm -r info-depo depo.list 
+cd ..
+sleep 1
+
+# a == hazırlanır
+echo -e "\033[1;32m 'a' hazırlanır... \033[:0m"
+cd a
+touch a.html
+touch program-list
+html_index_a="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'a'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+   <li><a href="azp/azp.html">azp</a></li>
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>"
+echo "$html_index_a" >> a.html
+# AZP versions page
+mkdir azp
+cd azp
+touch azp.html
+touch latest-file
+azp_page="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo - azp</title>
+<body>
+
+<div>
+  <h1>azp</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <li><a href="https://azp-paket-sistemi.github.io/azp-depo/a/azp/azp-1.5.azp">azp-1.5.azp</a></li>
+   <li><a href="https://azp-paket-sistemi.github.io/azp-depo/a/azp/azp-2.0.azp">azp-2.0.azp</a></li>
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>"
+echo "$azp_page" >> azp.html
+echo "azp-2.0.azp" >> latest-file
+cd ..
+cd ..
+
+# b == hazırlanır
+echo -e "\033[1;32m 'b' hazırlanır... \033[:0m"
+cd b
+touch b.html
+touch program-list
+html_index_b="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'b'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_b" >> b.html
+cd ..
+
+# c == hazırlanır
+echo -e "\033[1;32m 'c' hazırlanır... \033[:0m"
+cd c
+touch c.html
+touch program-list
+html_index_c="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'c'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_c" >> c.html
+cd ..
+
+# d == hazırlanır
+echo -e "\033[1;32m 'd' hazırlanır... \033[:0m"
+cd d
+touch d.html
+touch program-list
+html_index_d="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'd'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_d" >> d.html
+cd ..
+
+# e == hazırlanır
+echo -e "\033[1;32m 'e' hazırlanır... \033[:0m"
+cd e
+touch e.html
+touch program-list
+html_index_e="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'e'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_e" >> e.html
+cd ..
+
+# f == hazırlanır
+echo -e "\033[1;32m 'f' hazırlanır... \033[:0m"
+cd f
+touch f.html
+touch program-list
+html_index_f="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'f'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_f" >> f.html
+cd ..
+
+# g == hazırlanır
+echo -e "\033[1;32m 'g' hazırlanır... \033[:0m"
+cd g
+touch g.html
+touch program-list
+html_index_g="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'g'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_g" >> g.html
+cd ..
+
+# h == hazırlanır
+echo -e "\033[1;32m 'h' hazırlanır... \033[:0m"
+cd h
+touch h.html
+touch program-list
+html_index_h="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'h'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_h" >> h.html
+cd ..
+
+# i == hazırlanır
+echo -e "\033[1;32m 'i' hazırlanır... \033[:0m"
+cd i
+touch i.html
+touch program-list
+html_index_i="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'i'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_i" >> i.html
+cd ..
+
+# j == hazırlanır
+echo -e "\033[1;32m 'j' hazırlanır... \033[:0m"
+cd j
+touch j.html
+touch program-list
+html_index_j="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'j'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_j" >> j.html
+cd ..
+
+# k == hazırlanır
+echo -e "\033[1;32m 'k' hazırlanır... \033[:0m"
+cd k
+touch k.html
+touch program-list
+html_index_k="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'k'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_k" >> k.html
+cd ..
+
+# l == hazırlanır
+echo -e "\033[1;32m 'l' hazırlanır... \033[:0m"
+cd l
+touch l.html
+touch program-list
+html_index_l="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'l'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_l" >> l.html
+cd ..
+
+# m == hazırlanır
+echo -e "\033[1;32m 'm' hazırlanır... \033[:0m"
+cd m
+touch m.html
+touch program-list
+html_index_m="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'm'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_m" >> m.html
+cd ..
+
+# n == hazırlanır
+echo -e "\033[1;32m 'n' hazırlanır... \033[:0m"
+cd n
+touch n.html
+touch program-list
+html_index_n="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'n'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_n" >> n.html
+cd ..
+
+# p == hazırlanır
+echo -e "\033[1;32m 'p' hazırlanır... \033[:0m"
+cd p
+touch p.html
+touch program-list
+html_index_p="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'p'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_p" >> p.html
+cd ..
+
+# r == hazırlanır
+echo -e "\033[1;32m 'r' hazırlanır... \033[:0m"
+cd r
+touch r.html
+touch program-list
+html_index_r="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'r'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_r" >> r.html
+cd ..
+
+# s == hazırlanır
+echo -e "\033[1;32m 's' hazırlanır... \033[:0m"
+cd s
+touch s.html
+touch program-list
+html_index_s="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 's'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_s" >> s.html
+cd ..
+
+# t == hazırlanır
+echo -e "\033[1;32m 't' hazırlanır... \033[:0m"
+cd t
+touch t.html
+touch program-list
+html_index_t="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 't'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_t" >> t.html
+cd ..
+
+# u == hazırlanır
+echo -e "\033[1;32m 'u' hazırlanır... \033[:0m"
+cd u
+touch u.html
+touch program-list
+html_index_u="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'u'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_u" >> u.html
+cd ..
+
+# v == hazırlanır
+echo -e "\033[1;32m 'v' hazırlanır... \033[:0m"
+cd v
+touch v.html
+touch program-list
+html_index_v="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'v'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_v" >> v.html
+cd ..
+
+# w == hazırlanır
+echo -e "\033[1;32m 'w' hazırlanır... \033[:0m"
+cd w
+touch w.html
+touch program-list
+html_index_w="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'w'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_w" >> w.html
+cd ..
+
+# y == hazırlanır
+echo -e "\033[1;32m 'y' hazırlanır... \033[:0m"
+cd y
+touch y.html
+touch program-list
+html_index_y="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'y'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_y" >> y.html
+cd ..
+
+# z == hazırlanır
+echo -e "\033[1;32m 'z' hazırlanır... \033[:0m"
+cd z
+touch z.html
+touch program-list
+html_index_z="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'z'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_z" >> z.html
+cd ..
+
+echo -e "\033[1;34m Proses Bitmişdir. Deponuzun faylları hazırdır. \033[:0m"
