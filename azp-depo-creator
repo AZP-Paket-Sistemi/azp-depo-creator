@@ -22,7 +22,7 @@ cd azp_depo_creator
 
 ## Depo fayllarının hazırlanması
 echo -e "\033[1;32m Depo qovluqları hazırlanır \033[:0m"
-depo_folder="[depo] a b c d e f g h i j k l m n p r s t u v w y z"
+depo_folder="[depo] a b c d e f g h x i j k l m n p r s t u v w y z"
 mkdir $depo_folder
 
 ## index.html == hazırlanması
@@ -353,6 +353,35 @@ html_index_h="<!DOCTYPE html>
 </html>
 "
 echo "$html_index_h" >> h.html
+cd ..
+
+# x == hazırlanır
+echo -e "\033[1;32m 'x' hazırlanır... \033[:0m"
+cd x
+touch x.html
+touch program-list
+html_index_x="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>Index of 'x'</h1>
+  <hr size="2" />
+ <div>
+ <ul>
+   <!-- azp packages -->
+ </ul>
+   <hr size="2" />
+ </div>
+</div>
+
+</body>
+</head>
+</html>
+"
+echo "$html_index_x" >> x.html
 cd ..
 
 # i == hazırlanır
