@@ -15,7 +15,7 @@ echo -e "\033[1;35m AZP DEPO YARADICI \033[:0m"
 echo -e "\033[1;32m 2021-2022 AZP \033[:0m"
 sleep 0.6
 
-read -p "Boş olan deponuzun linkini daxil edin: " depo_link
+read -p "Hazır deponuzun linkini daxil edin: " depo_link
 echo -e "\033[1;32m $depo_link == depo hazırlanır... \033[:0m"
 mkdir azp_depo_creator
 cd azp_depo_creator
@@ -46,6 +46,7 @@ index="<!DOCTYPE html>
    <li><a href="f/f.html"><b>f</b></a></li>
    <li><a href="g/g.html"><b>g</b></a></li>
    <li><a href="h/h.html"><b>h</b></a></li>
+   <li><a href="x/x.html"><b>h</b></a></li>
    <li><a href="i/i.html"><b>i</b></a></li>
    <li><a href="j/j.html"><b>j</b></a></li>
    <li><a href="k/k.html"><b>k</b></a></li>
