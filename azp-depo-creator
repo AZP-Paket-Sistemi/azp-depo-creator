@@ -151,7 +151,7 @@ azp_page="<!DOCTYPE html>
 </head>
 </html>"
 echo "$azp_page" >> azp.html
-echo "azp-2.0.azp" >> latest-file
+echo "azp-2.0-1.azp" >> latest-file
 cd ..
 cd ..
 
