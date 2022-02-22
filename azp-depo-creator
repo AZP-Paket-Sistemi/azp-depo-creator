@@ -25,6 +25,38 @@ echo -e "\033[1;32m Depo qovluqları hazırlanır \033[:0m"
 depo_folder="[depo] a b c d e f g h x i j k l m n p r s t u v w y z"
 mkdir $depo_folder
 
+# netlify
+netlify="[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404"
+echo "$netlify" >> netlify.toml
+
+#404
+html404="<!DOCTYPE html>
+<html>
+<head>
+<title>AZP Depo</title>
+<body>
+
+<div>
+  <h1>AZP DEPO</h1>
+  <p>AZP applications depo</p>
+   <hr size="2" />
+   <b>Belə bir kateqoriya və ya səhifə yoxdur !</b>
+   <hr size="2"/>
+
+<p>AZP site: <a href="https://azp-paket-sistemi.github.io">https://azp-paket-sistemi.github.io</a></p>
+<p>PacPERRO OS site: <a href="https://pacperro-os.github.io">https://pacperro-os.github.io</a></p>
+   <b>2021-2022 AZP</b>
+ </div>
+</div>
+
+</body>
+</head>
+</html>"
+echo "$html404" >> 404.html
+
 ## index.html == hazırlanması
 index="<!DOCTYPE html>
 <html>
