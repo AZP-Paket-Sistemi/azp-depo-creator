@@ -114,16 +114,16 @@ echo "$index" >> index.html
 read -p "Depo ad: " depo_ad
 read -p "Depo açıqlama: " depo_description
 cd "[depo]"
-touch depo.list
-echo "$depo_link" >> depo.list
+touch depo
+echo "$depo_link" >> depo
 touch info-depo
 echo -e "\033[1;32m Depo məlumatları yazılır... \033[:0m"
 sleep 0.6
 echo "name: $depo_ad" >> info-depo
 echo "description: $depo_description" >> info-depo
 echo "link: $depo_link" >> info-depo
-zip -r depo.zip info-depo depo.list
-rm -r info-depo depo.list 
+zip -r depo.zip info-depo depo
+rm -r info-depo depo
 cd ..
 sleep 1
 
