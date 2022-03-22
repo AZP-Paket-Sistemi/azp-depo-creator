@@ -860,4 +860,4 @@ html_index_z="<!DOCTYPE html>
 echo "$html_index_z" >> z.html
 cd ..
 
-echo -e "\033[1;34m Proses Bitmişdir. Deponuzun faylları hazırdır. \033[:0m"
+echo -e "\033[1;34m Proses Bitmişdir. Deponuz hazırdır. \033[:0m"
