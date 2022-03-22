@@ -16,7 +16,10 @@ echo -e "\033[1;32m 2021-2022 AZP \033[:0m"
 sleep 0.6
 
 read -p "Hazır deponuzun linkini daxil edin: " depo_link
+[[ $depo_link == "" ]] && echo "Link əlavə edin !" && exit
+[[ ${depo_link:0:8} != "https://" ]] && [[ ${depo_link:0:7} != "http://" ]] && echo "Link düzgün deyil !" && exit
 echo -e "\033[1;32m $depo_link == depo hazırlanır... \033[:0m"
+[[ -d azp_depo_creator ]] && rm -r azp_depo_creator
 mkdir azp_depo_creator
 cd azp_depo_creator
 
@@ -112,7 +115,9 @@ echo "$index" >> index.html
 
 # [depo] == hazırlanır
 read -p "Depo ad: " depo_ad
+[[ $depo_ad == "" ]] && echo "Depo adını daxil edin !" && exit
 read -p "Depo açıqlama: " depo_description
+[[ $depo_ad == "" ]] && echo "Deponun açıqlama mətnini daxil edin !" && exit
 cd "[depo]"
 touch depo
 echo "$depo_link" >> depo
